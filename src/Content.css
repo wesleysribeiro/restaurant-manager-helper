@@ -1,0 +1,14 @@
+.content-page {
+	display: flex;
+	justify-content: center;
+}
+
+form {
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+}
+
+form div {
+	display: flex;
+}
