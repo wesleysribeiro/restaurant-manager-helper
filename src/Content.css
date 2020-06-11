@@ -12,6 +12,14 @@
 	font-size: 4rem;
 }
 
+.maintenence-container {
+	text-align: center;
+}
+
+.maintenence-container img {
+	width: 60%;
+}
+
 .content-page {
 	display: flex;
 	justify-content: center;

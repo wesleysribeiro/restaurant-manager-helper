@@ -1,0 +1,13 @@
+.dish-img {
+	width: 200px;
+	height: 170px;
+	margin: 8px;	
+	filter: grayscale(65%);
+}
+
+.dish-img:hover {
+	transform: scale(1.1) rotate(3deg);
+	transition-duration: 0.7s;
+	cursor: pointer;
+	filter: grayscale(0%);
+}

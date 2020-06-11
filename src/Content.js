@@ -26,7 +26,10 @@ class Content extends React.Component {
 			return <Dishes/>
 		}
 
-		return <div> Clicked item = {this.state.value} </div>
+		return <div className="maintenence-container">
+				<div> Clicked item = {this.state.value} </div>
+				<img src="https://lh3.googleusercontent.com/proxy/O8TVZbXaffo5xBPVZZ7WHP0fWj9NxCRc97iXEAPzIWiDle9h0_iFpd1-6TmnkNPx9GZVqsWmoYNWHP3zUc4sS0E92a271VoFowlLIk5svinccBAktPf-VlponGjpTwC-FhMTo6rVzLCMAopxn0BIomO7YULPJ2kugA7d6Ue4wNEu2x-Hk9jxZ_SQHVTG9pGmA_QwRU97kYfM6R4T"/>
+			   </div>
 	}
 }
 
