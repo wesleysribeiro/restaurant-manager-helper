@@ -41,8 +41,15 @@ class App extends React.Component {
                   </i><span className="menu-item-label">Perfil</span>
                 </a>
               </li>
-              <li id={DISHES} onClick={this.onMenuItemClicked}><a><i className="glyphicon glyphicon-apple"></i><span className="menu-item-label">Inserir Pratos</span></a></li>
-              <li id={RESTAURANTS} onClick={this.onMenuItemClicked}><a><i className="glyphicon glyphicon-list"></i><span className="menu-item-label">Meus restaurantes</span></a></li>
+              <li id={DISHES} onClick={this.onMenuItemClicked}>
+                <a>
+                  <i className="glyphicon glyphicon-apple"></i><span className="menu-item-label">Meus pratos</span>
+                </a>
+              </li>
+              <li id={RESTAURANTS} onClick={this.onMenuItemClicked}>
+                <a><i className="glyphicon glyphicon-list"></i><span className="menu-item-label">Meus restaurantes</span>
+                </a>
+                </li>
               <li id={INDICATORS} onClick={this.onMenuItemClicked}><a><i className="glyphicon glyphicon-stats"></i><span className="menu-item-label">Visualizar Indicadores</span></a></li>
               <li id={EXIT}onClick={this.onMenuItemClicked}><a><i className="glyphicon glyphicon-log-out"></i><span className="menu-item-label">Sair da conta</span></a></li>
             </ul>
@@ -51,9 +58,6 @@ class App extends React.Component {
         <div className="content-frame">
           <h1>SGR - Sistema de Gerenciamento de Restaurantes</h1>
           <Content value={this.state.CURRENT_CONTENT}/>
-          <footer>
-            <p className="copyright"> © {(new Date()).getFullYear()}. Desenvolvido por </p>
-          </footer>
         </div>
       </div>
     </div>

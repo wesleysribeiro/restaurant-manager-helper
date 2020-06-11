@@ -1,3 +1,17 @@
+.registered-dishes {
+	height: 100%;
+	margin-top: 5%;
+	padding: 5% 10% 5% 10%;
+	text-align: center;
+	background-color: #f7eed2;
+}
+
+.subtitle {
+	font-family: 'Pacifico', cursive;
+	text-decoration: underline;
+	font-size: 4rem;
+}
+
 .content-page {
 	display: flex;
 	justify-content: center;
@@ -30,7 +44,6 @@ form .checkbox-flex {
 
 form div .checkbox {
 	flex: 1;
-	margin-right: 100px;
 }
 
 form .checkbox-flex label {
