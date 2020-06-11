@@ -7,8 +7,51 @@ form {
 	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
+	padding: 20px;
+	border: 1px solid green;
+	border-radius: 10px;
+	background-color: #f0fff1;
 }
 
 form div {
-	display: flex;
+	margin-top: 5px;
 }
+
+form .main-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+form .checkbox-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+form div .checkbox {
+	flex: 1;
+	margin-right: 100px;
+}
+
+form .checkbox-flex label {
+	flex: 1;
+}
+
+.submit-btn {
+	display: flex;
+	justify-content: center;
+}
+
+.submit-btn input {
+	border-radius: 5px;
+	padding: 3px 10px 3px 10px;
+	color: white;
+	border-color: transparent;
+	background-color: #21ad46;
+}
+
+.submit-btn input:hover {
+	transition-duration: .2s;
+	transform: scale(1.1);
+}
+

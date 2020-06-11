@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Dishes from './Dishes.js';
 import Content from './Content.js';
 import MENU_ITEM_CODES from './constants';
 
@@ -11,7 +10,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-        CURRENT_CONTENT: HOME
+        CURRENT_CONTENT: DISHES
     }
   }
 
@@ -29,8 +28,19 @@ class App extends React.Component {
         <div className="side-bar">
           <nav>
             <ul>
-              <li id={HOME} onClick={this.onMenuItemClicked}><a><i className="glyphicon glyphicon-home"></i><span className="menu-item-label">Home</span></a></li>
-              <li id={PROFILE} onClick={this.onMenuItemClicked}><a><i className="glyphicon glyphicon-user"></i><span className="menu-item-label">Perfil</span></a></li>
+              <li id={HOME} onClick={this.onMenuItemClicked}>
+                <a>
+                  <i className="glyphicon glyphicon-home">
+                  </i>
+                  <span className="menu-item-label">Home</span>
+                  </a>
+              </li>
+              <li id={PROFILE} onClick={this.onMenuItemClicked}>
+                <a>
+                  <i className="glyphicon glyphicon-user">
+                  </i><span className="menu-item-label">Perfil</span>
+                </a>
+              </li>
               <li id={DISHES} onClick={this.onMenuItemClicked}><a><i className="glyphicon glyphicon-apple"></i><span className="menu-item-label">Inserir Pratos</span></a></li>
               <li id={RESTAURANTS} onClick={this.onMenuItemClicked}><a><i className="glyphicon glyphicon-list"></i><span className="menu-item-label">Meus restaurantes</span></a></li>
               <li id={INDICATORS} onClick={this.onMenuItemClicked}><a><i className="glyphicon glyphicon-stats"></i><span className="menu-item-label">Visualizar Indicadores</span></a></li>
