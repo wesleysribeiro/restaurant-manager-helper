@@ -100,7 +100,7 @@ class Dishes extends React.Component {
 							<input className="checkbox" onChange={this.onChange} id="vegan-in" type="checkbox"/>
 						</div>
 						<div className="main-flex">
-							<label htmlFor="price" required>Valor</label>
+							<label htmlFor="price" required>Preço (em R$)</label>
 							<input id="price" onChange={this.onChange} type="number" required/>
 						</div>
 						<div className="main-flex">
