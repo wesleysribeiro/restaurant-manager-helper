@@ -57,11 +57,17 @@ class Home extends React.Component {
 		// const url = "https://localhost:3000/signIn"
 		// fetch(url, {
 		// 	method: 'POST',
+		//	headers: {
+		//		'Content-Type': 'application/json'
+		//	}
 		// 	body: JSON.stringify(this.loginData)
 		// })
 		let loggedIn = true;
 		if(!loggedIn) {
 			alert('Email ou senha incorretos')
+		}
+		else {
+			alert('Autenticado com sucesso!')
 		}
 		this.onLogin(loggedIn);
 	}
@@ -80,20 +86,26 @@ class Home extends React.Component {
 				<div className="signup">
 					<form onSubmit={this.onSigningUp}>
 						<h2 className="h2"> Cadastrar usuário </h2>
-						<label> Nome: </label>
-						<input type="text" onChange={this.onNameChanged} required/>
-						<br/>
-						<label> CPF: </label>
-						<input type="text" onChange={this.onCPFChanged} required/>
-						<br/>
-						<label> Data de Nascimento: </label>
-						<input type="date" onChange={this.onBirthdateChanged} required/>
-						<br/>
-						<label> Email: </label>
-						<input type="text" onChange={this.onEmailChanged} required/>
-						<br/>
-						<label> Senha: </label>
-						<input type="password" onChange={this.onPasswordChanged} required/>
+						<div className="flex-row">
+							<label> Nome: </label>
+							<input type="text" onChange={this.onNameChanged} required/>
+						</div>
+						<div className="flex-row">
+							<label> CPF: </label>
+							<input type="text" onChange={this.onCPFChanged} required/>
+						</div>
+						<div className="flex-row">
+							<label> Data de Nascimento: </label>
+							<input type="date" onChange={this.onBirthdateChanged} required/>
+						</div>
+						<div className="flex-row">
+							<label> Email: </label>
+							<input type="text" onChange={this.onEmailChanged} required/>
+						</div>
+						<div className="flex-row">
+							<label> Senha: </label>
+							<input type="password" onChange={this.onPasswordChanged} required/>
+						</div>
 						<br/>
 						<div className="submit-container-enter">
 							<button className="submit-btn">Enviar</button>
@@ -103,9 +115,10 @@ class Home extends React.Component {
 				<div className="signin">
 					<form onSubmit={this.onSigningIn}>
 						<h2 className="h2"> Entrar </h2>
-						<label> Email:   </label>
-						<input onChange={this.onLoginEmailChanged} type="text" required/>
-						<br/>
+						<div className="flex-row">
+							<label> Email:   </label>
+							<input onChange={this.onLoginEmailChanged} type="text" required/>
+						</div>
 						<label> Senha: </label>
 						<input onChange={this.onLoginPasswordChanged} type="password" required/>
 						<br/>

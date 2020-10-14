@@ -1,10 +1,11 @@
 import React from 'react';
 import Dishes from './Dishes.js';
 import Home from './Home.js';
+import Restaurants from './Restaurants.js'
 import MENU_ITEM_CODES from './constants.js';
 import './Content.css';
 
-const {DISHES, HOME} = MENU_ITEM_CODES;
+const {DISHES, HOME, RESTAURANTS} = MENU_ITEM_CODES;
 
 class Content extends React.Component {
 	constructor(props) {
@@ -31,9 +32,13 @@ class Content extends React.Component {
 		{
 			return <Dishes/>
 		}
-		if(this.state.value === HOME)
+		else if(this.state.value === HOME)
 		{
 			return <Home onLogin={this.onLogin}/>
+		}
+		else if(this.state.value === RESTAURANTS)
+		{
+			return <Restaurants/>
 		}
 
 		return <div className="maintenence-container">
