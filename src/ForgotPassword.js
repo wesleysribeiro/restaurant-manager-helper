@@ -5,8 +5,46 @@ import Button from 'react-bootstrap/Button';
 const ForgotPassword = (props) => {
 	const [show, setShow] = useState(false);
 
-	const handleClose = () => setShow(false);
+	const data = {
+		email: ""
+	}
+	const handleClose = () => {
+		console.log('Enviando: ')
+		console.log(data.email)
+		fetch('http://localhost:3003/forgotPassword', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(data)
+		})
+		.then(resp => {
+			return resp.json()
+		})
+		.then(json => {
+			if(json.success) {
+				alert("A senha do usuário é: " + json.senha)
+			}
+			else {
+				alert("Email não cadastrado: " + data.email)
+			}
+			setShow(false);
+		})
+		.catch(err => {
+			setShow(false);
+			return err
+		});
+		
+	}
+
+	const handleCancel = () => {
+		setShow(false);
+	}
 	const handleShow = () => setShow(true);
+
+	const onEmailChanged = (event) => {
+		data.email = event.target.value
+	}
 
 	return (
 		<>
@@ -17,10 +55,10 @@ const ForgotPassword = (props) => {
 			    </Modal.Header>
 		    	<Modal.Body>
 		    		<label> Email: </label>
-		    		<input type="text"/>
+		    		<input type="text" onChange={onEmailChanged}/>
 		    	</Modal.Body>
 		    	<Modal.Footer>
-	   		       <Button variant="primary" onClick={handleClose}>
+	   		       <Button variant="primary" onClick={handleCancel}>
 	        		    Cancelar
 	          		</Button>
 	          		<Button variant="primary" onClick={handleClose}>

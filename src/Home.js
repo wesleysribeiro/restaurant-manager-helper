@@ -43,33 +43,50 @@ class Home extends React.Component {
 		event.preventDefault()
 		console.log(this.registerData)
 
-		// const url = "https://localhost:3000/signUp"
-		// fetch(url, {
-		// 	method: 'POST',
-		// 	body: JSON.stringify(this.registerData)
-		// })
+		const url = "http://localhost:3003/signUp"
+		fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(this.registerData)
+		})
+		.then(resp => resp.json())
+		.then(json => console.log(json))
+		.catch(err => {
+			console.log('Um erro ocorreu: ')
+			console.log(err)
+		})
 	}
 
 	onSigningIn = (event) => {
 		event.preventDefault();
 		console.log(this.loginData)
 
-		// const url = "https://localhost:3000/signIn"
-		// fetch(url, {
-		// 	method: 'POST',
-		//	headers: {
-		//		'Content-Type': 'application/json'
-		//	}
-		// 	body: JSON.stringify(this.loginData)
-		// })
-		let loggedIn = true;
-		if(!loggedIn) {
-			alert('Email ou senha incorretos')
-		}
-		else {
-			alert('Autenticado com sucesso!')
-		}
-		this.onLogin(loggedIn);
+		const url = "http://localhost:3003/signIn"
+		fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(this.loginData)
+		})
+		.then((resp) => {
+			return resp.json()
+		})
+		.then((json) => {
+			console.log(json);
+			let loggedIn = json.result;
+
+			if(!loggedIn) {
+				alert('Email ou senha incorretos')
+			}
+			else {
+				alert('Autenticado com sucesso!')
+			}
+			this.onLogin(loggedIn);
+		})
+
 	}
 
 	onLoginEmailChanged = (event) => {
