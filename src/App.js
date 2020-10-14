@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-        CURRENT_CONTENT: DISHES
+        CURRENT_CONTENT: HOME
     }
   }
 

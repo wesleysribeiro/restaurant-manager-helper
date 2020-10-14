@@ -30,9 +30,12 @@
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
-	border: 1px solid green;
+	border: 1px solid black;
 	border-radius: 10px;
-	background-color: #f0fff1;
+	//background: url('https://i.pinimg.com/originals/2e/37/e4/2e37e4844441ed66f478c7a148b28a9b.png');
+	background-color: white;
+	background-size: 1000px;
+	background-repeat: no-repeat;
 }
 
 .dishes-form div {
@@ -58,20 +61,20 @@
 	flex: 1;
 }
 
-.submit-btn {
+.submit-container {
 	display: flex;
 	justify-content: center;
 }
 
-.submit-btn input {
+.submit-btn {
 	border-radius: 5px;
 	padding: 3px 10px 3px 10px;
 	color: white;
 	border-color: transparent;
-	background-color: #21ad46;
+	background-color: #349beb;
 }
 
-.submit-btn input:hover {
+.submit-btn:hover {
 	transition-duration: .2s;
 	transform: scale(1.1);
 }

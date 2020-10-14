@@ -155,8 +155,8 @@ class Dishes extends React.Component {
 							<label htmlFor="img" required>Anexar foto</label>
 							<input id="img" type="file"/>
 						</div>
-						<div className="submit-btn">
-							<input type="submit" onClick={this.onSubmitClicked}/>
+						<div className="submit-container">
+							<input type="submit" className="submit-btn" onClick={this.onSubmitClicked}/>
 						</div>
 					</form>
 				</div>
