@@ -10,6 +10,7 @@ class Content extends React.Component {
 	constructor(props) {
 		super(props);
 		
+		this.onLoginCallback = props.onLogin;
 		this.state = props;
 		console.log('Content.constructor() called with ', this.state);
 	}
@@ -17,6 +18,10 @@ class Content extends React.Component {
 	componentWillReceiveProps(nextProps)
 	{
 		this.setState(nextProps);
+	}
+
+	onLogin = (loggedIn) => {
+		this.onLoginCallback(loggedIn)
 	}
 
 	render = () => {
@@ -28,7 +33,7 @@ class Content extends React.Component {
 		}
 		if(this.state.value === HOME)
 		{
-			return <Home/>
+			return <Home onLogin={this.onLogin}/>
 		}
 
 		return <div className="maintenence-container">
