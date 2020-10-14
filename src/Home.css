@@ -6,3 +6,16 @@
 .submit-container-enter {
 	text-align: center;
 }
+
+.forgot-password {
+	font-size: 14px;
+}
+
+.forgot-password:hover {
+	color: blue !important;
+	cursor: pointer;
+}
+
+.h2 {
+	font-size: 20px;
+}

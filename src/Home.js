@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css'
+import ForgotPassword from './ForgotPassword'
 
 class Home extends React.Component {
 	constructor(props) {
@@ -56,9 +57,12 @@ class Home extends React.Component {
 		// const url = "https://localhost:3000/signIn"
 		// fetch(url, {
 		// 	method: 'POST',
-		// 	body: JSON.stringify(this.registerData)
+		// 	body: JSON.stringify(this.loginData)
 		// })
 		let loggedIn = true;
+		if(!loggedIn) {
+			alert('Email ou senha incorretos')
+		}
 		this.onLogin(loggedIn);
 	}
 
@@ -75,7 +79,7 @@ class Home extends React.Component {
 			<div className="signInOn">
 				<div className="signup">
 					<form onSubmit={this.onSigningUp}>
-						<h2> Cadastrar usuário </h2>
+						<h2 className="h2"> Cadastrar usuário </h2>
 						<label> Nome: </label>
 						<input type="text" onChange={this.onNameChanged} required/>
 						<br/>
@@ -98,7 +102,7 @@ class Home extends React.Component {
 				</div>
 				<div className="signin">
 					<form onSubmit={this.onSigningIn}>
-						<h2> Entrar </h2>
+						<h2 className="h2"> Entrar </h2>
 						<label> Email:   </label>
 						<input onChange={this.onLoginEmailChanged} type="text" required/>
 						<br/>
@@ -106,6 +110,7 @@ class Home extends React.Component {
 						<input onChange={this.onLoginPasswordChanged} type="password" required/>
 						<br/>
 						<div className="submit-container-enter">
+							<ForgotPassword/>
 							<button className="submit-btn">Logar</button>
 						</div>
 					</form>
