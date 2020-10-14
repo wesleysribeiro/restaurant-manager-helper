@@ -31,13 +31,13 @@ const Dish = (props) => {
 		    <Modal.Body>
 		    	<img className="dish-img" src={values['img']}/>
 		    	<br/>
-		    	Descrição: {values['moreInfo']}
+		    	Descrição: {(values['moreInfo'] ? values['moreInfo'] : "Sem descrição disponível")}
 		    	<br/>
-		    	Ingredientes: {values['ingredients']}
+		    	Ingredientes: {(values['ingredients']? values['ingredients'] : "Sem dados de ingredientes")}
 		    	<br/>
-		    	Preço: {'R$' + values['price']}
+		    	Preço: {'R$' + (values['price'] ? values['price'] : 0.00)}
 		    	<br/>
-		    	Avaliação: {values['rating']}
+		    	Avaliação: {(values['rating'] ? values['rating'] : "Não avaliado ainda.")}
 		    </Modal.Body>
 		    <Modal.Footer>
 	          <Button variant="primary" onClick={handleClose}>

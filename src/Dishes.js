@@ -87,7 +87,7 @@ class Dishes extends React.Component {
 			lacFree: this.form["lac-in"],
 			vegan: this.form["vegan-in"],
 			price: this.form["price"],
-			img:"https://image.freepik.com/fotos-gratis/neon-sinal-barzinhos-imagem-coquetel_23-2148184280.jpg",
+			img:"",
 			rating: "Não avaliado."
 		});
 		this.setState({dishes: this.state.dishes});
@@ -122,7 +122,7 @@ class Dishes extends React.Component {
          return (	
          	<div className="dishes-container">
 				<div className="content-page">
-					<form>
+					<form className="dishes-form">
 						<div className="main-flex">
 							<label htmlFor="name">Nome</label>
 							<input id="name" onChange={this.onChange} required/>
