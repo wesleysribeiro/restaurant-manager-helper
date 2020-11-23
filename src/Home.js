@@ -9,7 +9,7 @@ class Home extends React.Component {
 		this.registerData = {
 			name: "",
 			CPF: -1,
-			birthdate: "00/00/0000",
+			birthdate: "",
 			email: "",
 			password: ""
 		}
@@ -52,7 +52,10 @@ class Home extends React.Component {
 			body: JSON.stringify(this.registerData)
 		})
 		.then(resp => resp.json())
-		.then(json => console.log(json))
+		.then(json => {
+			console.log(json)
+			alert(json.message);
+		})
 		.catch(err => {
 			console.log('Um erro ocorreu: ')
 			console.log(err)
@@ -76,7 +79,10 @@ class Home extends React.Component {
 		})
 		.then((json) => {
 			console.log(json);
-			let loggedIn = json.result;
+			const loggedIn = json.result;
+			const sessionToken = json.token;
+
+			console.log('Token: ' + sessionToken)
 
 			if(!loggedIn) {
 				alert('Email ou senha incorretos')
@@ -84,7 +90,7 @@ class Home extends React.Component {
 			else {
 				alert('Autenticado com sucesso!')
 			}
-			this.onLogin(loggedIn);
+			this.onLogin(loggedIn, sessionToken);
 		})
 
 	}

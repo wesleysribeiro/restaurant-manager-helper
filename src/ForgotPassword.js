@@ -22,12 +22,8 @@ const ForgotPassword = (props) => {
 			return resp.json()
 		})
 		.then(json => {
-			if(json.success) {
-				alert("A senha do usuário é: " + json.senha)
-			}
-			else {
-				alert("Email não cadastrado: " + data.email)
-			}
+			console.log(json)
+			alert(json.message)	
 			setShow(false);
 		})
 		.catch(err => {

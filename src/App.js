@@ -13,6 +13,8 @@ class App extends React.Component {
         CURRENT_CONTENT: HOME,
         loggedIn: false
     }
+
+    this.token = '';
   }
 
   onMenuItemClicked = (event) => {
@@ -23,6 +25,7 @@ class App extends React.Component {
     if(id === EXIT)
     {
       loggedIn = false;
+      this.token = ''
     }
     this.setState(
       {
@@ -33,7 +36,10 @@ class App extends React.Component {
     console.log(this.state);
   }
 
-  onLogin = (loggedIn) => {
+  onLogin = (loggedIn, authToken) => {
+    console.log('On onLogin func')
+    console.log('authToken: ' + authToken)
+    this.token = authToken;
     this.setState(
     {
       loggedIn
@@ -58,7 +64,7 @@ class App extends React.Component {
     if(this.state.loggedIn)
     {
       userActions.push(
-        <li id={PROFILE} onClick={this.onMenuItemClicked}>
+        <li id={PROFILE} onClick={this.onMenuItemClicked} token={this.token}>
           <a>
             <i className="glyphicon glyphicon-user">
             </i><span className="menu-item-label">Perfil</span>
