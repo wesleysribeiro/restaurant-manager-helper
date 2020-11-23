@@ -39,7 +39,7 @@ class Content extends React.Component {
 			case HOME:
 				return <Home onLogin={this.onLogin}/>
 			case RESTAURANTS: 
-				return <Restaurants/>
+				return <Restaurants token={this.sessionToken}/>
 			case PROFILE:
 				return <Profile token={this.sessionToken}/>
 			default:

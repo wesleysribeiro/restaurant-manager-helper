@@ -5,6 +5,8 @@ class Restaurants extends React.Component  {
 	constructor(props) {
 		super(props)
 
+		this.token = props.token;
+
 		this.state = {
 			restaurants: [],
 		}
@@ -40,7 +42,8 @@ class Restaurants extends React.Component  {
 		fetch(url, {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'x-access-token': this.token
 			},
 			body: JSON.stringify(this.data)
 		})
