@@ -36,7 +36,9 @@ class Profile extends React.Component {
 			return resp.json()
 		})
 		.then((json) => {
-			this.setState({nome: json.name, cpf: json.cpf, dataNasc: json.birthdate})
+			const data = {nome: json.name, cpf: json.cpf, dataNasc: json.birthdate};
+			Object.assign(this.form, data);
+			this.setState(data)
 		})
 	}
 
@@ -45,29 +47,62 @@ class Profile extends React.Component {
 	}
 
 	onApply = (evt) => {
-		// Submit changes
+		const url = 'http://localhost:3003/profileData';
+
+		console.log(this.sessionToken)
+
+		fetch(url, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({token: this.sessionToken, form: this.form})
+		})
+		.then((resp) => {
+			return resp.json()
+		})
+		.then((json) => {
+			alert(json.message)
+			this.setState({readonly: true})
+		})
+	}
+
+	onNameChanged = (evt) => {
+		this.form.nome = evt.target.value;
+		console.log(this.form);
+	}
+
+	onCPFChanged = (evt) => {
+		this.form.cpf = evt.target.value;
+		console.log(this.form);
+	}
+
+	onBirthdateChanged = (evt) => {
+		this.form.dataNasc = evt.target.value;
+		console.log(this.form);
 	}
 
 	render = () => {
+
 		const readOnly = this.state.readonly;
 
 		return (
 			<div className="profile-content">
 				<div className="line-inner">
 					<label htmlFor="Nome">Nome</label>
-					<input type="text" id="Nome" name="Name" disabled={readOnly} defaultValue={this.state.nome}/>
+					<input type="text" id="Nome" name="Name" disabled={readOnly} defaultValue={this.state.nome} onChange={this.onNameChanged}/>
 				</div>
 				<div className="line-inner">
 					<label htmlFor="CPF">CPF</label>
-					<input type="text" id="CPF" name="CPF" disabled={readOnly} defaultValue={this.state.cpf}/>
+					<input type="text" id="CPF" name="CPF" disabled={readOnly} defaultValue={this.state.cpf} onChange={this.onCPFChanged}/>
 				</div>
 				<div className="line-inner">
 					<label htmlFor="birthday">Data de Nascimento: </label>
-					<input type="date" id="birthday" name="birthday" disabled={readOnly} defaultValue={this.state.dataNasc}/>
+					<input type="date" id="birthday" name="birthday" disabled={readOnly} defaultValue={this.state.dataNasc} onChange={this.onBirthdateChanged}/>
 				</div>
 				<div className="buttons">
 					<button onClick={this.onEditClicked}> Editar </button>
-					<button onClick={this.onApply}> Aplicar </button>
+					<button onClick={this.onApply} disabled={readOnly}> Aplicar </button>
 				</div>
 			</div>
 		)

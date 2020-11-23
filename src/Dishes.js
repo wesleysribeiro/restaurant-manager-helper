@@ -58,8 +58,7 @@ class Dishes extends React.Component {
 	}
 
 	componentDidMount = () => {
-		// Fetch dishes from REST API
-		// Fake data for testing
+		
 	}
 
 	dishClicked = () => {
@@ -121,6 +120,9 @@ class Dishes extends React.Component {
 		console.log('Render() called');
          return (	
          	<div className="dishes-container">
+				<select name="restaurants" id="restaurants">
+					<option value="restaurant-1">Restaurante 1</option>
+				</select>
 				<div className="content-page">
 					<form className="dishes-form">
 						<div className="main-flex">
