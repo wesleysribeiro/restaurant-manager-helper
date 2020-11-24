@@ -1,0 +1,43 @@
+body {
+	background-color: #ffeded;
+	height: 100vh;
+}
+
+.review-ratings {
+	display: flex;
+	flex-direction: column;
+}
+
+.review-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px dashed black;
+	background-color: #fff5f0;
+	background-image: url('images/food-bg.jpg');
+}
+
+.review-container-center {
+	opacity: 100%;
+	background-color: white;
+	padding: 30px;
+	border-radius: 20px;
+	border: 4px solid black;
+}
+
+.attribute-rating {
+	display: flex;
+	justify-content: space-between;
+}
+
+.review-submit-btn {
+	width: 100px;
+	background-color: #ff9985;
+	border-radius: 10px;
+}
+
+.review-title {
+	font-family: 'Pacifico', cursive;
+	text-decoration: underline;
+	font-size: 2rem;
+}

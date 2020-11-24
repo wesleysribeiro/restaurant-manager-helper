@@ -36,6 +36,7 @@ class Restaurants extends React.Component  {
 		const aux = this.state.restaurants;
 		console.log(this.data)
 		aux.push({name: this.data.name})
+		console.log(this.token)
 
 		const url = "http://localhost:3003/restaurant"
 

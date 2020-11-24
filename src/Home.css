@@ -19,3 +19,16 @@
 .h2 {
 	font-size: 20px;
 }
+
+.content-frame {
+	background-image: url('images/main-bg2.jg.jpg');
+    background-color: rgba(255,255,255,0.35);
+    background-blend-mode: lighten;
+}
+
+.main-content {
+	background-color: white;
+	margin: 40px;
+	padding: 20px;
+	border-radius: 30px;
+}

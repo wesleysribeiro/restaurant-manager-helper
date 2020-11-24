@@ -2,6 +2,13 @@ import React from 'react';
 import './App.css';
 import Content from './Content.js';
 import MENU_ITEM_CODES from './constants';
+import UserReviews from './UserReviews.js';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const {HOME, PROFILE, DISHES, RESTAURANTS, INDICATORS, EXIT} = MENU_ITEM_CODES;
 
@@ -95,23 +102,34 @@ class App extends React.Component {
     }
 
     return (
-    <div className="App"> 
-      <div className="container-content">
-        <div className="side-bar">
-          <nav>
-            <ul>
-              {menuActions}
-              {userActions}
-            </ul>
-          </nav>
-        </div>
-        <div className="content-frame">
-          <h1>SGR - Sistema de Gerenciamento de Restaurantes</h1>
-          <Content value={this.state.CURRENT_CONTENT} onLogin={this.onLogin}/>
-        </div>
-      </div>
-    </div>
-  );
+        <Router>
+          <Switch>
+            <Route path="/home">
+              <div className="App"> 
+                <div className="container-content">
+                  <div className="side-bar">
+                    <nav>
+                      <ul>
+                        {menuActions}
+                        {userActions}
+                      </ul>
+                    </nav>
+                  </div>
+                  <div className="content-frame">
+                    <div className="main-content">
+                      <h1>SGR - Sistema de Gerenciamento de Restaurantes</h1>
+                      <Content value={this.state.CURRENT_CONTENT} onLogin={this.onLogin}/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Route>
+            <Route path="/userReviews">
+              <UserReviews/>
+            </Route>
+          </Switch>
+        </Router>
+    );
     }
 }
 
